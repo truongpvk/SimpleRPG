@@ -1,0 +1,6 @@
+D:\Codespace-Learning\Project Based\C#\LogicProject\bin\Debug\LogicProject.dll
+D:\Codespace-Learning\Project Based\C#\LogicProject\bin\Debug\LogicProject.pdb
+D:\Codespace-Learning\Project Based\C#\LogicProject\obj\Debug\LogicProject.csproj.AssemblyReference.cache
+D:\Codespace-Learning\Project Based\C#\LogicProject\obj\Debug\LogicProject.csproj.CoreCompileInputs.cache
+D:\Codespace-Learning\Project Based\C#\LogicProject\obj\Debug\LogicProject.dll
+D:\Codespace-Learning\Project Based\C#\LogicProject\obj\Debug\LogicProject.pdb
