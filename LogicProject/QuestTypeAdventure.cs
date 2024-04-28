@@ -11,9 +11,9 @@ namespace LogicProject
         public Location QuestLocation { get; set; }
 
         public QuestTypeAdventure() { }
-        public QuestTypeAdventure(int iD, string name, string description,
+        public QuestTypeAdventure(int iD, string name,
             Location location, int rewardExp, int type = 1) :
-            base(iD, name, description, rewardExp, type)
+            base(iD, name, rewardExp, type)
 
         { QuestLocation = location; }
     }

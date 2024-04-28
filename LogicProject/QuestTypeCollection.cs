@@ -8,13 +8,18 @@ namespace LogicProject
 {
     public class QuestTypeCollection : Quest
     {
-        public List<Item> RequireItems { get; set; }
+        public List<QuestItem> RequireItems = new List<QuestItem>();
 
         public QuestTypeCollection() { }
-        public QuestTypeCollection(int iD, string name, string description, int rewardExperience, int type = 3) : 
-            base(iD, name, description, rewardExperience, type)
+        public QuestTypeCollection(int iD, string name, int rewardExperience ,int type = 3,
+            QuestItem first = null, QuestItem second = null, QuestItem third = null) :
+            base(iD, name, rewardExperience, type)
         {
-            RequireItems = new List<Item>();
+            RequireItems.Add(first);
+            RequireItems.Add(second);
+            RequireItems.Add(third);
         }
+
+
     }
 }

@@ -11,3 +11,16 @@ D:\Codespace-Learning\Project Based\C#\MyRPG\obj\Debug\MyRPG.csproj.Up2Date
 D:\Codespace-Learning\Project Based\C#\MyRPG\obj\Debug\MyRPG.exe
 D:\Codespace-Learning\Project Based\C#\MyRPG\obj\Debug\MyRPG.pdb
 D:\Codespace-Learning\Project Based\C#\MyRPG\obj\Debug\MyRPG.CrazyRPG.resources
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\bin\Debug\MyRPG.exe.config
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\bin\Debug\MyRPG.exe
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\bin\Debug\MyRPG.pdb
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\bin\Debug\LogicProject.dll
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\bin\Debug\LogicProject.pdb
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.csproj.AssemblyReference.cache
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.CrazyRPG.resources
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.Properties.Resources.resources
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.csproj.GenerateResource.cache
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.csproj.CoreCompileInputs.cache
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.csproj.Up2Date
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.exe
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.pdb

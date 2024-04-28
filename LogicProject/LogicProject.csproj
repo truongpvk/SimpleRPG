@@ -50,9 +50,11 @@
     <Compile Include="MonsterSpawn.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerQuest.cs" />
+    <Compile Include="PlayerSkill.cs" />
     <Compile Include="Potion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quest.cs" />
+    <Compile Include="QuestItem.cs" />
     <Compile Include="QuestType.cs" />
     <Compile Include="QuestTypeAdventure.cs" />
     <Compile Include="QuestTypeBattle.cs" />

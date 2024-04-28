@@ -16,24 +16,12 @@ namespace MyRPG
     {
         public Player _player;
         public Location _currentLocation;
-        public Monster _monsterInBattleNow;
 
         public CrazyRPG()
         {
             InitializeComponent();
             _player = Player.CreateDefaultPlayer();
-
             ResetStatus();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnMoveNorth_Click(object sender, EventArgs e)
@@ -83,19 +71,10 @@ namespace MyRPG
 
         public void ResetStatus()
         {
-            lbCurrentHitPoints.Text = _player.CurrentHitPoint.ToString();
-            lbCurrentManaPoints.Text = _player.CurrentManaPoints.ToString();
-            lbExp.Text = _player.ExpPoints.ToString();
-            lbLevel.Text = _player.Level.ToString();
-        }
-
-        public void ResetMap()
-        {
-            lbCurrentLocation.Text = _currentLocation.Name;
-            lbWestLocation.Text = _currentLocation.LocationToWest.Name;
-            lbEastLocation.Text = _currentLocation.LocationToEast.Name;
-            lbNorthLocation.Text = _currentLocation.LocationToNorth.Name;
-            lbSouthLocation.Text = _currentLocation.LocationToSouth.Name;
+            lbCurrentHitPoints.DataBindings.Add("Text", _player, $"{nameof(_player.CurrentHitPoint)}");
+            lbCurrentManaPoints.DataBindings.Add("Text", _player, $"{nameof(_player.CurrentManaPoints)}");
+            lbExp.DataBindings.Add("Text", _player, $"{nameof(_player.ExpPoints)}");
+            lbLevel.DataBindings.Add("Text", _player, $"{nameof(_player.Level)}");
         }
 
         public void ResetCBOWeapon()

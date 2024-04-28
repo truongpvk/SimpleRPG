@@ -15,11 +15,10 @@ namespace LogicProject
         public int Type { get; set; }
 
         public Quest() { }
-        public Quest(int iD, string name, string description, int rewardExperience, int type)
+        public Quest(int iD, string name, int rewardExperience, int type)
         {
             ID = iD;
             Name = name;
-            Description = description;
             RewardExperience = rewardExperience;
             Type = type;
         }

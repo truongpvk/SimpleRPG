@@ -11,6 +11,7 @@ namespace LogicProject
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public int RequiredLevel { get; set; }
         public List<Quest> QuestAvailables { get; set; }
         public List<Treasure> TreasureAvailables { get; set; }
         public List<MonsterSpawn> MonsterAvailables { get; set; }
@@ -19,11 +20,12 @@ namespace LogicProject
         public Location LocationToNorth { get; set; }
         public Location LocationToSouth { get; set; }
         public Location() { }
-        public Location(int iD, string name, string description)
+        public Location(int iD, string name, string description, int requiredLevel = 1)
         {
             ID = iD;
             Name = name;
             Description = description;
+            RequiredLevel = requiredLevel;
             QuestAvailables = new List<Quest>();
             TreasureAvailables = new List<Treasure>();
             MonsterAvailables = new List<MonsterSpawn>();
