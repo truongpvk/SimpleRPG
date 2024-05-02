@@ -21,6 +21,7 @@ namespace MyRPG
 
             form.AutoSize = true;
             form.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            form.Text = "Crazy RPG";
 
             Application.Run(form);
         }

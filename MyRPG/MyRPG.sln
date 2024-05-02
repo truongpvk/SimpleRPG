@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRPG", "MyRPG.csproj", "{F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicProject", "..\LogicProject\LogicProject.csproj", "{5EDCC3E4-1AED-4E00-B370-1F9BD8E10808}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillList", "..\SkillList\SkillList.csproj", "{709D067C-AE11-4C7F-8E65-DC9E322C61BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5EDCC3E4-1AED-4E00-B370-1F9BD8E10808}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EDCC3E4-1AED-4E00-B370-1F9BD8E10808}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EDCC3E4-1AED-4E00-B370-1F9BD8E10808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{709D067C-AE11-4C7F-8E65-DC9E322C61BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709D067C-AE11-4C7F-8E65-DC9E322C61BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709D067C-AE11-4C7F-8E65-DC9E322C61BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709D067C-AE11-4C7F-8E65-DC9E322C61BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

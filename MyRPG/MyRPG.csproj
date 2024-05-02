@@ -84,6 +84,10 @@
       <Project>{5edcc3e4-1aed-4e00-b370-1f9bd8e10808}</Project>
       <Name>LogicProject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SkillList\SkillList.csproj">
+      <Project>{709d067c-ae11-4c7f-8e65-dc9e322c61bb}</Project>
+      <Name>SkillList</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,7 +13,7 @@ namespace LogicProject
         public List<TreasureItem> TreasureReward {  get; set; }
 
         public Treasure() { }
-        public Treasure(int treasureExperience, bool treasureOpen)
+        public Treasure(int treasureExperience, bool treasureOpen = false)
         {
             TreasureExperience = treasureExperience;
             TreasureOpen = treasureOpen;

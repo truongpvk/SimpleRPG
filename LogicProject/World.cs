@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ namespace LogicProject
         public const int LOCATION_ID_HEROES_VILLAGE = 2;
         public const int LOCATION_ID_GOLDEN_LEAP_FOREST = 3;
         public const int LOCATION_ID_PINE_FOREST = 4;
-        public const int LOCATION_ID__SCREAM_FOREST = 5;
+        public const int LOCATION_ID_SCREAM_FOREST = 5;
         public const int LOCATION_ID_DRAGON_GRAVE = 6;
         public const int LOCATION_ID_WOLF_PLACE = 7;
         public const int LOCATION_ID_AURORA_HILL = 8;
@@ -235,6 +236,619 @@ namespace LogicProject
         }
         static void PopulateLocation()
         {
+            /*
+             * new Location(..)
+             * Quest, Monster, Treasure
+             * East, ....
+             */
+            AddNewLocation(
+                new Location(LOCATION_ID_HOME, "Home", "Where you begin your journey!"),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_ADVENTURE_GO_TO_VILLAGE)
+                },
+                null,
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(0),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_IRON_SWORD), 1),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_HEALING), 10),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_MANA), 10),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_POTION), 3)
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_PINE_FOREST, "Pine Forest", "Pine Forest"),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_ADVENTURE_DO_YOU_SEE_WOLF),
+                    QuestByID(QUEST_ID_COLLECT_LEATHER_AND_SILK)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_SNAKE), 3),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_SPIDER), 4)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(50),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_HEALING), 10),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_MANA), 10),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_POTION), 5)
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_HEROES_VILLAGE, "Heroes Village", "The village of legends!", 1),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_ADVENTURE_GO_TO_STELE),
+                    QuestByID(QUEST_ID_BATTLE_KILL_SNAKE),
+                    QuestByID(QUEST_ID_BATTLE_KILL_GHOST),
+                    QuestByID(QUEST_ID_COLLECT_UNDEAD_EYE),
+                    QuestByID(QUEST_ID_COLLECT_SPIDER_SILK),
+                },
+                null,
+                null
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_GOLDEN_LEAP_FOREST, "Golden Leap Forest", "Gold but not gold!", 1),
+                null,
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_SNAKE), 2),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_UNDEAD), 1)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(50),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_HEALING), 10),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_MANA), 10),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_POTION), 5)
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_SCREAM_FOREST, "Scream Forest", "Do you hear that?", 15),
+                null,
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_GHOST), 4),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_SKELETON), 2)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(80),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_WOOD_BOW), 1),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_HEALING), 20),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_MANA), 20),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_POTION), 10)
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(80),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_STEEL_SWORD), 1),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_HEALING), 5)
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_DRAGON_GRAVE, "Dragon Grave", "Have you already known about the dragon? The last time of me was a long time ago.", 50),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_BATTLE_IT_IS_DRAGON)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_BONE_DRAGON), 3)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(300),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_ICE_BLADE),1),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_MEDIUM_HEALING),10),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_MEDIUM_MANA),10),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_MEDIUM_POTION),5)
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(300),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_MEDIUM_HEALING),20),
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_FLAME_BLADE),1)
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(300),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_HEALING),5)
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_WOLF_PLACE, "Wolf Place", "Wolf, a dog or a wild beast", 15),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_BATTLE_TALK_TO_WOLF)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_WOLF), 4)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(80),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_IRON_SWORD),1),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_HEALING),5),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_MANA),5)
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(80),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_STEEL_SWORD),1),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_POTION),5)
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_AURORA_HILL, "Aurora Hill", "Beautiful scene at night, but danger in the daytime", 25),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_BATTLE_LION_ROAR)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_LION), 4),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_TIGER), 5),
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(100),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_IRON_BOW),1)
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(100),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_HEALING),10),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_TINY_MANA),10),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(100),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_STEEL_SWORD),1),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_POTION),5),
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_RUINS_OF_THE_ARCANE_CITY, "Ruins of the Arcane city", "A legend is never died!", 35),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_BATTLE_KNIGHT_NOT_DIED),
+                    QuestByID(QUEST_ID_COLLECT_KNIGHT_AND_MAGICIAN),
+                    QuestByID(QUEST_ID_COLLECT_I_AM_KNIGHT)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_UNDEAD_KNIGHT), 6),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_UNDEAD_MAGICIAN), 3)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(150),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_FLAME_BLADE),1),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(150),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_HEALING),20),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_MANA),20),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(150),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_MANA),50),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(150),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_KNIGHT_CERTIFICATION),5),
+                            new TreasureItem(ItemByID(ITEM_ID_ROTTEN_WOODEN_WAND),3),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(150),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_MEDIUM_HEALING),5),
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_SMALL_POTION),10),
+                        }
+                    ),
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_MEMORIAL_STELE, "Memorial stele", "They will be immortal as long as we remember them.", 35),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_ADVENTURE_THE_CAVE),
+                    QuestByID(QUEST_ID_COLLECT_WING_AND_ESSENCE)
+                },
+                null,
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(500),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_HEALING),10),      
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_SAINT_SPEAR),1),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(500),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_HEALING),20),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(500),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_POTION),10),
+                        }
+                    ),
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_MILLENIMUM_MOUNTAIN, "Millenimum Mountain", "The moutain exists during a million year or more!", 50),
+                null,
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_DRAZARD), 5),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_PHANTOM), 4),
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(700),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_FLAME_BLADE),1),       
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_MEDIUM_HEALING),50),       
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_MEDIUM_MANA),50),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(700),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_ICE_BLADE),1),     
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_MEDIUM_POTION),30),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(700),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_HEALING),70),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_MEDIUM_POTION),70),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(700),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_MANA),70),
+                        }
+                    ),
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_CHAOS_GATE, "Chaos Gate", "Mystery place, be careful, traveller!", 75),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_COLLECT_DRAGON_AGAIN)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_GREAT_DRAZARD), 2),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_DEATH_DRAZARD), 1)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(1000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_ANGEL_SPEAR),1),       
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_HEALING),50),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_MANA),50),
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_KAIJU_CITY, "Kaiju City", "Danger for human, everyone say that. But it's true!", 90),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_COLLECT_FLAME_EYE)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_GIANT), 3),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_FLAME_DRAGON), 2)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(800),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_DARK_HARVEST),1),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_HEALING),80),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_MANA),80),     
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_POTION),60),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(800),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_HEALING),80),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_MANA),80),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(800),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_HEALING),50),
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_WAVE_OCEAN, "Wave Ocean", "Do you want to know what poetry is? Come here!", 90),
+                null,
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_SIREN), 5),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_DARK_MERMAID), 4)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(1500),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_MAGIC_RUBY_SWORD),1),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_HEALING),100),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(1500),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_BIG_MANA),100),        
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_HEALING),50),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(1500),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_MANA),50),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(1500),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_POTION),25),
+                        }
+                    ),
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_FOREST_OF_FOG, "Forest of Fog", "The more dangerous Scream Forest!", 100),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_ADVENTURE_GO_TO_WAVE),
+                    QuestByID(QUEST_ID_COLLECT_DEEP_OCEAN)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_VOID_GHOST), 6)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(2000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_MAGIC_RUBY_SWORD),1),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_HEALING),75),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(2000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_MANA),75),       
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_POTION),50),
+                        }
+                    ),
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_TWILIGHT_HILL, "Twilight Hill", "A new challenge for you!", 200),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_BATTLE_NEW_CHALLENGE)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_TWILIGHT_TALON), 1)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(5000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_DRAGON_CLAW),1),       
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_POTION),60),
+                        }
+                    )
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_DEMON_CASTLE, "Demon Castle", "The journey has come to the end, let's continue!", 250),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_ADVENTURE_GO_TO_VOLCANO)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_DEMON), 7),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_GREAT_DEMON), 2)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(4000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_DEMON_DAGGER),1),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_HEALING),90),        
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_MANA),90),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(4000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_POTION),75),     
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_POTION),15),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(4000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_HEALING),120),
+                        }
+                    ),
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_PURGATORY_MOUTAIN, "Purgatory Moutain", "Up until now, no matter what warnings you have, you still won't give up, right? I'm still by your side, keep going!", 400),
+                new List<Quest>
+                {
+                    QuestByID(QUEST_ID_ADVENTURE_THE_TOWER),
+                    QuestByID(QUEST_ID_BATTLE_DEMON_SUPER),
+                    QuestByID(QUEST_ID_BATTLE_REAPER_IS_HERE)
+                },
+                new List<MonsterSpawn>
+                {
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_GREAT_DEMON), 4),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_FALLEN_ANGEL), 3),
+                    new MonsterSpawn(MonsterByID(MONSTER_ID_KILLER_REAPER), 3)
+                },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(7000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_KING_GREAT_SWORD),1),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_HEALING),150),       
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_MANA),150),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(7000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_DEMON_DAGGER),1),
+                        }
+                    ),
+                    CreateTreasure(
+                        new Treasure(7000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_POTION),200),
+                        }
+                    ),
+                }
+            );
+            AddNewLocation(
+                new Location(LOCATION_ID_TOWER_OF_DARKNESS, "Tower of Darkness", "Your last challenge! I will be at home waiting for you, must come back!", 800),
+                null,
+                new List<MonsterSpawn> { new MonsterSpawn(MonsterByID(MONSTER_ID_DEMON_KING), 1) },
+                new List<Treasure>
+                {
+                    CreateTreasure(
+                        new Treasure(10000),
+                        new List<TreasureItem>
+                        {
+                            new TreasureItem(ItemByID(ITEM_ID_WEAPON_LEGEND_WAND),1),       
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_HEALING),1000),      
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_MANA),1000),     
+                            new TreasureItem(ItemByID(ITEM_ID_POTION_GREAT_POTION),1000),
+                        }
+                    )
+                }
+            );
 
         }
         static void PopulateItem()
@@ -528,30 +1142,37 @@ namespace LogicProject
             //
             //Type 1: Adventure
             //
-            AddQuestTypeAdventure(QUEST_ID_ADVENTURE_GO_TO_VILLAGE, "Đi tới Làng Anh Hùng", "Đi tới Làng Anh Hùng", 50, LocationByID(LOCATION_ID_HEROES_VILLAGE));
-            AddQuestTypeAdventure(QUEST_ID_ADVENTURE_GO_TO_STELE, "Đi tới Bia Tưởng Niệm", "Đi tới Bia Tưởng Niệm", 200, LocationByID(LOCATION_ID_MEMORIAL_STELE));
-            AddQuestTypeAdventure(QUEST_ID_ADVENTURE_DO_YOU_SEE_WOLF, "Đi tới Wolf Place", "Đi tới Wolf Place", 300, LocationByID(LOCATION_ID_WOLF_PLACE));
-            AddQuestTypeAdventure(QUEST_ID_ADVENTURE_THE_CAVE, "Đi đến Chaos Gate", "Đi đến Chaos Gate", 3500, LocationByID(LOCATION_ID_CHAOS_GATE));
-            AddQuestTypeAdventure(QUEST_ID_ADVENTURE_GO_TO_WAVE, "Đi đến Wave Ocean", "Đi đến Wave Ocean", 6500, LocationByID(LOCATION_ID_WAVE_OCEAN));
-            AddQuestTypeAdventure(QUEST_ID_ADVENTURE_GO_TO_VOLCANO, "Đi đến Purgatory Moutain", "Đi đến Purgatory Moutain", 7800, LocationByID(LOCATION_ID_PURGATORY_MOUTAIN));
-            AddQuestTypeAdventure(QUEST_ID_ADVENTURE_THE_TOWER, "Đi đến Tower of Darkness", "Đi đến Tower of Darkness", 20000, LocationByID(LOCATION_ID_TOWER_OF_DARKNESS));
+            AddQuestTypeAdventure(new QuestTypeAdventure(QUEST_ID_ADVENTURE_GO_TO_VILLAGE, "Đi tới Làng Anh Hùng", LocationByID(LOCATION_ID_HEROES_VILLAGE), 50));
+            AddQuestTypeAdventure(new QuestTypeAdventure(QUEST_ID_ADVENTURE_GO_TO_STELE, "Đi tới Bia Tưởng Niệm", LocationByID(LOCATION_ID_MEMORIAL_STELE), 200));
+            AddQuestTypeAdventure(new QuestTypeAdventure(QUEST_ID_ADVENTURE_DO_YOU_SEE_WOLF, "Đi tới Wolf Place", LocationByID(LOCATION_ID_WOLF_PLACE), 300));
+            AddQuestTypeAdventure(new QuestTypeAdventure(QUEST_ID_ADVENTURE_THE_CAVE, "Đi đến Chaos Gate", LocationByID(LOCATION_ID_CHAOS_GATE), 3500));
+            AddQuestTypeAdventure(new QuestTypeAdventure(QUEST_ID_ADVENTURE_GO_TO_WAVE, "Đi đến Wave Ocean", LocationByID(LOCATION_ID_WAVE_OCEAN), 6500));
+            AddQuestTypeAdventure(new QuestTypeAdventure(QUEST_ID_ADVENTURE_GO_TO_VOLCANO, "Đi đến Purgatory Moutain", LocationByID(LOCATION_ID_PURGATORY_MOUTAIN), 7800));
+            AddQuestTypeAdventure(new QuestTypeAdventure(QUEST_ID_ADVENTURE_THE_TOWER, "Đi đến Tower of Darkness", LocationByID(LOCATION_ID_TOWER_OF_DARKNESS), 20000));
             //
             //Type 2: Battle
             //
-            AddQuestTypeBattle(QUEST_ID_BATTLE_KILL_SNAKE, "Tiêu diệt 20 Snake", "Tiêu diệt 20 Snake", 150, MonsterByID(MONSTER_ID_SNAKE), 20);
-            AddQuestTypeBattle(QUEST_ID_BATTLE_KILL_GHOST, "Tiêu diệt 50 Ghost", "Tiêu diệt 50 Ghost", 300, MonsterByID(MONSTER_ID_GHOST), 50);
-            AddQuestTypeBattle(QUEST_ID_BATTLE_TALK_TO_WOLF, "Tiêu diệt 100 con sói", "Tiêu diệt 100 con sói", 1000, MonsterByID(MONSTER_ID_WOLF), 100);
-            AddQuestTypeBattle(QUEST_ID_BATTLE_LION_ROAR, "Tiêu diệt 100 con sư tử", "Tiêu diệt 100 con sư tử", 1500, MonsterByID(MONSTER_ID_LION), 100);
-            AddQuestTypeBattle(QUEST_ID_BATTLE_KNIGHT_NOT_DIED, "Tiêu diệt 200 Undead Knight", "Tiêu diệt 200 Undead Knight", 3000, MonsterByID(MONSTER_ID_UNDEAD_KNIGHT), 200);
-            AddQuestTypeBattle(QUEST_ID_BATTLE_IT_IS_DRAGON, "Tiêu diệt 30 con Bone Dragon", "Tiêu diệt 30 con Bone Dragon", 5000, MonsterByID(MONSTER_ID_BONE_DRAGON), 30);
-            AddQuestTypeBattle(QUEST_ID_BATTLE_NEW_CHALLENGE, "Đánh bại Twilight Talon", "Đánh bại Twilight Talon", 12000, MonsterByID(MONSTER_ID_TWILIGHT_TALON), 1);
-            AddQuestTypeBattle(QUEST_ID_BATTLE_DEMON_SUPER, "Tiêu diệt 500 Great Demon", "Tiêu diệt 500 Great Demon", 13000, MonsterByID(MONSTER_ID_GREAT_DEMON), 500);
-            AddQuestTypeBattle(QUEST_ID_BATTLE_REAPER_IS_HERE, "Tiêu diệt 700 Killer Reaper", "Tiêu diệt 700 Killer Reaper", 14000, MonsterByID(MONSTER_ID_KILLER_REAPER), 700);
+            AddQuestTypeBattle(new QuestTypeBattle(QUEST_ID_BATTLE_KILL_SNAKE, "Tiêu diệt 20 Snake", MonsterByID(MONSTER_ID_SNAKE), 20, 150));
+            AddQuestTypeBattle(new QuestTypeBattle(QUEST_ID_BATTLE_KILL_GHOST, "Tiêu diệt 50 Ghost", MonsterByID(MONSTER_ID_GHOST), 50, 300));
+            AddQuestTypeBattle(new QuestTypeBattle(QUEST_ID_BATTLE_TALK_TO_WOLF, "Tiêu diệt 100 con sói", MonsterByID(MONSTER_ID_WOLF), 100, 1000));
+            AddQuestTypeBattle(new QuestTypeBattle(QUEST_ID_BATTLE_LION_ROAR, "Tiêu diệt 100 con sư tử", MonsterByID(MONSTER_ID_LION), 100, 1500));
+            AddQuestTypeBattle(new QuestTypeBattle(QUEST_ID_BATTLE_KNIGHT_NOT_DIED, "Tiêu diệt 200 Undead Knight", MonsterByID(MONSTER_ID_UNDEAD_KNIGHT), 200, 3000));
+            AddQuestTypeBattle(new QuestTypeBattle(QUEST_ID_BATTLE_IT_IS_DRAGON, "Tiêu diệt 30 con Bone Dragon", MonsterByID(MONSTER_ID_BONE_DRAGON), 30, 5000));
+            AddQuestTypeBattle(new QuestTypeBattle(QUEST_ID_BATTLE_NEW_CHALLENGE, "Đánh bại Twilight Talon", MonsterByID(MONSTER_ID_TWILIGHT_TALON), 1, 12000));
+            AddQuestTypeBattle(new QuestTypeBattle(QUEST_ID_BATTLE_DEMON_SUPER, "Tiêu diệt 500 Great Demon", MonsterByID(MONSTER_ID_GREAT_DEMON), 500, 13000));
+            AddQuestTypeBattle(new QuestTypeBattle(QUEST_ID_BATTLE_REAPER_IS_HERE, "Tiêu diệt 700 Killer Reaper", MonsterByID(MONSTER_ID_KILLER_REAPER), 700, 14000));
             //
             //Type 3: Collection
             //
-
-
+            AddQuestTypeCollection(new QuestTypeCollection(QUEST_ID_COLLECT_UNDEAD_EYE, "Thu thập 10 Undead Eye", 100, CreateQuestItem(ItemByID(ITEM_ID_SPIDER_EYE), 10), null, null));
+            AddQuestTypeCollection(new QuestTypeCollection(QUEST_ID_COLLECT_SPIDER_SILK, "Thu thập 50 Spider Silks", 250, CreateQuestItem(ItemByID(ITEM_ID_SPIDER_SILK), 50), null, null));
+            AddQuestTypeCollection(new QuestTypeCollection(QUEST_ID_COLLECT_LEATHER_AND_SILK, "Thu thập 50 Snake Leathers và 50 Spider Silks", 500, CreateQuestItem(ItemByID(ITEM_ID_SNAKE_LEATHER), 50), CreateQuestItem(ItemByID(ITEM_ID_SPIDER_EYE), 50), null));
+            AddQuestTypeCollection(new QuestTypeCollection(QUEST_ID_COLLECT_KNIGHT_AND_MAGICIAN, "Thu thập 100 chứng nhận kỵ sĩ và 100 gậy phép mục nát", 4000, CreateQuestItem(ItemByID(ITEM_ID_KNIGHT_CERTIFICATION), 100), CreateQuestItem(ItemByID(ITEM_ID_ROTTEN_WOODEN_WAND), 100), null));
+            AddQuestTypeCollection(new QuestTypeCollection(QUEST_ID_COLLECT_I_AM_KNIGHT, "Thu thập 50 kiếm gãy và 50 giáp vỡ", 2500, CreateQuestItem(ItemByID(ITEM_ID_BROKEN_ARMOR), 50), CreateQuestItem(ItemByID(ITEM_ID_BROKEN_SWORD), 50), null));
+            AddQuestTypeCollection(new QuestTypeCollection(QUEST_ID_COLLECT_WING_AND_ESSENCE, "Thu thập Phantom Wing, Giant Essence và Death Fragment", 5000, CreateQuestItem(ItemByID(ITEM_ID_PHANTOM_WING), 300), CreateQuestItem(ItemByID(ITEM_ID_GIANT_ESSENCE), 50), CreateQuestItem(ItemByID(ITEM_ID_DEATH_FRAGMENT), 150)));
+            AddQuestTypeCollection(new QuestTypeCollection(QUEST_ID_COLLECT_DRAGON_AGAIN, "Thu thập Drazard Eye và Leather", 6000, CreateQuestItem(ItemByID(ITEM_ID_DRAZARD_EYE), 100), CreateQuestItem(ItemByID(ITEM_ID_DRAZARD_LEATHER), 100), null));
+            AddQuestTypeCollection(new QuestTypeCollection(QUEST_ID_COLLECT_FLAME_EYE, "Thu thập Dragon Fang và Flame Dragon Eye", 7000, CreateQuestItem(ItemByID(ITEM_ID_DRAGON_FANG), 150), CreateQuestItem(ItemByID(ITEM_ID_FLAME_DRAGON_EYE), 50), null));
+            AddQuestTypeCollection(new QuestTypeCollection(QUEST_ID_COLLECT_DEEP_OCEAN, "Thu thập Siren Scale, Mermaid Voice và Void Fragment", 8000, CreateQuestItem(ItemByID(ITEM_ID_SIREN_SCALE), 200), CreateQuestItem(ItemByID(ITEM_ID_MERMAID_VOICE), 200), CreateQuestItem(ItemByID(ITEM_ID_VOID_FRAGMENT), 50)));
         }
         static void PopulateSkill()
         {
@@ -630,29 +1251,44 @@ namespace LogicProject
         //
         //Create Quest
         //
-        private static void AddQuestTypeAdventure(int iD, string name, string description, int exp, Location required)
+        private static void AddQuestTypeAdventure(QuestTypeAdventure newQuest)
         {
-            QuestTypeAdventure newQuest = new QuestTypeAdventure(iD, name, required, exp);
-            newQuest.Description = description;
             Quests.Add(newQuest);
         }
-        private static void AddQuestTypeBattle(int iD, string name, string desc, int exp, Monster required, int quantity)
+        private static void AddQuestTypeBattle(QuestTypeBattle newQuest)
         {
-            QuestTypeBattle newQuest = new QuestTypeBattle(iD, name, required, quantity, exp);
-            newQuest.Description = desc;
             Quests.Add(newQuest);
         }
-        private static QuestTypeCollection AddQuestTypeCollection(int iD, string name, string desc, int exp,
-            QuestItem first = null, QuestItem second = null, QuestItem third = null)
+        private static void AddQuestTypeCollection(QuestTypeCollection newQuest)
         {
-            QuestTypeCollection newQuest = new QuestTypeCollection(iD, name, exp, 3, first, second, third);
-            newQuest.Description = desc;
-            return newQuest;
+            Quests.Add(newQuest);
         }
         private static QuestItem CreateQuestItem(Item detail, int quantity)
         {
             QuestItem newQuestItem = new QuestItem(detail, quantity);
             return newQuestItem;
+        }
+        //
+        //Create Location
+        //
+        private static void AddNewLocation(Location newLocation, List<Quest> quests, List<MonsterSpawn> monster, List<Treasure> item)
+        {
+            newLocation.QuestAvailables = quests;
+            newLocation.MonsterAvailables = monster;
+            newLocation.TreasureAvailables = item;
+            Locations.Add(newLocation);
+        }
+        private static Treasure CreateTreasure(Treasure treasure, List<TreasureItem> reward)
+        {
+            treasure.TreasureReward = reward;
+            return treasure;
+        }
+        private static void AddMap(ref Location current, List<Location> map)
+        {
+            current.East(map[0]);
+            current.West(map[1]);
+            current.South(map[2]);
+            current.North(map[3]);
         }
         //
         //Search in Collection

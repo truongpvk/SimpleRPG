@@ -61,16 +61,14 @@
             this.btnUsePotion = new System.Windows.Forms.Button();
             this.btnUseWeapon = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cboQuest = new System.Windows.Forms.ComboBox();
-            this.cboMonster = new System.Windows.Forms.ComboBox();
-            this.cboTreasure = new System.Windows.Forms.ComboBox();
-            this.btnAcceptQuest = new System.Windows.Forms.Button();
-            this.btnBattleWithMonster = new System.Windows.Forms.Button();
             this.btnOpenTreasure = new System.Windows.Forms.Button();
+            this.btnBattleWithMonster = new System.Windows.Forms.Button();
+            this.btnAcceptQuest = new System.Windows.Forms.Button();
+            this.cboTreasure = new System.Windows.Forms.ComboBox();
+            this.cboMonster = new System.Windows.Forms.ComboBox();
+            this.cboQuest = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.cboFirstSkill = new System.Windows.Forms.ComboBox();
-            this.cboSecondSkill = new System.Windows.Forms.ComboBox();
-            this.cboThirdSkill = new System.Windows.Forms.ComboBox();
+            this.btnSkillList = new System.Windows.Forms.Button();
             this.Status.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtvQuest)).BeginInit();
@@ -426,38 +424,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Location Status";
             // 
-            // cboQuest
+            // btnOpenTreasure
             // 
-            this.cboQuest.FormattingEnabled = true;
-            this.cboQuest.Location = new System.Drawing.Point(30, 48);
-            this.cboQuest.Name = "cboQuest";
-            this.cboQuest.Size = new System.Drawing.Size(121, 28);
-            this.cboQuest.TabIndex = 0;
-            // 
-            // cboMonster
-            // 
-            this.cboMonster.FormattingEnabled = true;
-            this.cboMonster.Location = new System.Drawing.Point(30, 117);
-            this.cboMonster.Name = "cboMonster";
-            this.cboMonster.Size = new System.Drawing.Size(121, 28);
-            this.cboMonster.TabIndex = 1;
-            // 
-            // cboTreasure
-            // 
-            this.cboTreasure.FormattingEnabled = true;
-            this.cboTreasure.Location = new System.Drawing.Point(30, 189);
-            this.cboTreasure.Name = "cboTreasure";
-            this.cboTreasure.Size = new System.Drawing.Size(121, 28);
-            this.cboTreasure.TabIndex = 2;
-            // 
-            // btnAcceptQuest
-            // 
-            this.btnAcceptQuest.Location = new System.Drawing.Point(201, 48);
-            this.btnAcceptQuest.Name = "btnAcceptQuest";
-            this.btnAcceptQuest.Size = new System.Drawing.Size(75, 27);
-            this.btnAcceptQuest.TabIndex = 3;
-            this.btnAcceptQuest.Text = "Accept";
-            this.btnAcceptQuest.UseVisualStyleBackColor = true;
+            this.btnOpenTreasure.Location = new System.Drawing.Point(201, 190);
+            this.btnOpenTreasure.Name = "btnOpenTreasure";
+            this.btnOpenTreasure.Size = new System.Drawing.Size(75, 27);
+            this.btnOpenTreasure.TabIndex = 5;
+            this.btnOpenTreasure.Text = "Open";
+            this.btnOpenTreasure.UseVisualStyleBackColor = true;
             // 
             // btnBattleWithMonster
             // 
@@ -468,20 +442,42 @@
             this.btnBattleWithMonster.Text = "Battle";
             this.btnBattleWithMonster.UseVisualStyleBackColor = true;
             // 
-            // btnOpenTreasure
+            // btnAcceptQuest
             // 
-            this.btnOpenTreasure.Location = new System.Drawing.Point(201, 190);
-            this.btnOpenTreasure.Name = "btnOpenTreasure";
-            this.btnOpenTreasure.Size = new System.Drawing.Size(75, 27);
-            this.btnOpenTreasure.TabIndex = 5;
-            this.btnOpenTreasure.Text = "Open";
-            this.btnOpenTreasure.UseVisualStyleBackColor = true;
+            this.btnAcceptQuest.Location = new System.Drawing.Point(201, 48);
+            this.btnAcceptQuest.Name = "btnAcceptQuest";
+            this.btnAcceptQuest.Size = new System.Drawing.Size(75, 27);
+            this.btnAcceptQuest.TabIndex = 3;
+            this.btnAcceptQuest.Text = "Accept";
+            this.btnAcceptQuest.UseVisualStyleBackColor = true;
+            // 
+            // cboTreasure
+            // 
+            this.cboTreasure.FormattingEnabled = true;
+            this.cboTreasure.Location = new System.Drawing.Point(30, 189);
+            this.cboTreasure.Name = "cboTreasure";
+            this.cboTreasure.Size = new System.Drawing.Size(121, 28);
+            this.cboTreasure.TabIndex = 2;
+            // 
+            // cboMonster
+            // 
+            this.cboMonster.FormattingEnabled = true;
+            this.cboMonster.Location = new System.Drawing.Point(30, 117);
+            this.cboMonster.Name = "cboMonster";
+            this.cboMonster.Size = new System.Drawing.Size(121, 28);
+            this.cboMonster.TabIndex = 1;
+            // 
+            // cboQuest
+            // 
+            this.cboQuest.FormattingEnabled = true;
+            this.cboQuest.Location = new System.Drawing.Point(30, 48);
+            this.cboQuest.Name = "cboQuest";
+            this.cboQuest.Size = new System.Drawing.Size(121, 28);
+            this.cboQuest.TabIndex = 0;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.cboThirdSkill);
-            this.groupBox5.Controls.Add(this.cboSecondSkill);
-            this.groupBox5.Controls.Add(this.cboFirstSkill);
+            this.groupBox5.Controls.Add(this.btnSkillList);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(828, 649);
             this.groupBox5.Name = "groupBox5";
@@ -490,29 +486,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Skill List";
             // 
-            // cboFirstSkill
+            // btnSkillList
             // 
-            this.cboFirstSkill.FormattingEnabled = true;
-            this.cboFirstSkill.Location = new System.Drawing.Point(42, 48);
-            this.cboFirstSkill.Name = "cboFirstSkill";
-            this.cboFirstSkill.Size = new System.Drawing.Size(121, 28);
-            this.cboFirstSkill.TabIndex = 6;
-            // 
-            // cboSecondSkill
-            // 
-            this.cboSecondSkill.FormattingEnabled = true;
-            this.cboSecondSkill.Location = new System.Drawing.Point(42, 118);
-            this.cboSecondSkill.Name = "cboSecondSkill";
-            this.cboSecondSkill.Size = new System.Drawing.Size(121, 28);
-            this.cboSecondSkill.TabIndex = 6;
-            // 
-            // cboThirdSkill
-            // 
-            this.cboThirdSkill.FormattingEnabled = true;
-            this.cboThirdSkill.Location = new System.Drawing.Point(42, 190);
-            this.cboThirdSkill.Name = "cboThirdSkill";
-            this.cboThirdSkill.Size = new System.Drawing.Size(121, 28);
-            this.cboThirdSkill.TabIndex = 6;
+            this.btnSkillList.Location = new System.Drawing.Point(46, 104);
+            this.btnSkillList.Name = "btnSkillList";
+            this.btnSkillList.Size = new System.Drawing.Size(112, 41);
+            this.btnSkillList.TabIndex = 0;
+            this.btnSkillList.Text = "List of Skill";
+            this.btnSkillList.UseVisualStyleBackColor = true;
+            this.btnSkillList.Click += new System.EventHandler(this.btnSkillList_Click);
             // 
             // CrazyRPG
             // 
@@ -591,9 +573,7 @@
         private System.Windows.Forms.ComboBox cboMonster;
         private System.Windows.Forms.ComboBox cboQuest;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ComboBox cboThirdSkill;
-        private System.Windows.Forms.ComboBox cboSecondSkill;
-        private System.Windows.Forms.ComboBox cboFirstSkill;
+        private System.Windows.Forms.Button btnSkillList;
     }
 }
 

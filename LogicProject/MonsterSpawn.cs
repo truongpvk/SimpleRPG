@@ -9,6 +9,11 @@ namespace LogicProject
     public class MonsterSpawn
     {
         public Monster Details { get; set; }
+        public int currentQuantity
+        {
+            get { return Quantity; }
+            set { currentQuantity = value; }
+        }
         public int Quantity { get; set; }
 
         public MonsterSpawn() { }

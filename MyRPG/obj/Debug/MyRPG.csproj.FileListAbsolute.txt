@@ -24,3 +24,6 @@ D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.csproj.
 D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.csproj.Up2Date
 D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.exe
 D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\obj\Debug\MyRPG.pdb
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\bin\Debug\SkillList.exe
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\bin\Debug\SkillList.pdb
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\MyRPG\bin\Debug\SkillList.exe.config

@@ -1,0 +1,9 @@
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\SkillList\bin\Debug\SkillList.exe.config
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\SkillList\bin\Debug\SkillList.exe
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\SkillList\bin\Debug\SkillList.pdb
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\SkillList\obj\Debug\SkillList.csproj.AssemblyReference.cache
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\SkillList\obj\Debug\SkillList.Properties.Resources.resources
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\SkillList\obj\Debug\SkillList.csproj.GenerateResource.cache
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\SkillList\obj\Debug\SkillList.csproj.CoreCompileInputs.cache
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\SkillList\obj\Debug\SkillList.exe
+D:\Codespace-Learning\Project Based\C#\RPG-Restart\SkillList\obj\Debug\SkillList.pdb

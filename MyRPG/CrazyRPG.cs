@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using LogicProject;
+using SkillList;
 
 namespace MyRPG
 {
@@ -86,7 +87,7 @@ namespace MyRPG
         {
 
         }
-        
+
         public void ResetInventoryUI()
         {
 
@@ -94,6 +95,12 @@ namespace MyRPG
         public void ResetQuestUI()
         {
 
+        }
+
+        private void btnSkillList_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.ShowDialog();
         }
     }
 }
